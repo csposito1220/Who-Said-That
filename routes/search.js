@@ -7,4 +7,6 @@ router.get("/", searchCtrl.index);
 
 router.get("/quote", searchCtrl.searchedQuote);
 
+router.get("/movie", searchCtrl.searchedMovie);
+
 module.exports = router;

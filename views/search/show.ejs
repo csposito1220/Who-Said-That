@@ -7,10 +7,13 @@
 <h1>Most Recent Searches</h1>
 
 <!-- list of recent searches -->
+<% quotes.forEach(function(q) { %>
 <ul class="recent">
-  <li></li>
+  <li><%= q.quote %></li>
+  <li><%= q.actor %></li>
+  <li><%= q.movie %></li>
 </ul>
-
+<% }) %>
 <!-- CRUD button list -->
 <ul class="crud">
   <li><a href="">Edit</a></li>

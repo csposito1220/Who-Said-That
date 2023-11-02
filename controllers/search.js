@@ -4,6 +4,7 @@ const Actor = require("../models/actors");
 module.exports = {
   index,
   searchedQuote,
+  searchedMovie,
   showAll,
 };
 
@@ -12,7 +13,11 @@ function index(req, res) {
 }
 
 function searchedQuote(req, res) {
-  res.render("search/quote");
+  res.render("search/quote", { title: "Searched Quote" });
+}
+
+function searchedMovie(req, res) {
+  res.render("search/movie", { title: "Searched Movie" });
 }
 
 async function showAll(req, res) {

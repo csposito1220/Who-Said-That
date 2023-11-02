@@ -7,6 +7,8 @@ router.get("/", quotesCtrl.index);
 
 router.get("/new", quotesCtrl.new);
 
+// router.get("/:id", quotesCtrl.show);
+
 router.post("/", quotesCtrl.create);
 
 module.exports = router;
