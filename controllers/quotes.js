@@ -2,9 +2,14 @@ const Quote = require("../models/quotes");
 const Actor = require("../models/actors");
 
 module.exports = {
+  index,
   new: newQuote,
   create,
 };
+
+function index(req, res) {
+  res.render("search/show", { title: "Recent Searches" });
+}
 
 async function newQuote(req, res) {
   res.render("search/new", { title: "Add Quote" });

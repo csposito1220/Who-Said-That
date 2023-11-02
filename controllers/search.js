@@ -3,11 +3,16 @@ const Actor = require("../models/actors");
 
 module.exports = {
   index,
+  searchedQuote,
   showAll,
 };
 
-async function index(req, res) {
+function index(req, res) {
   res.render("search/index", { title: "Search" });
+}
+
+function searchedQuote(req, res) {
+  res.render("search/quote");
 }
 
 async function showAll(req, res) {

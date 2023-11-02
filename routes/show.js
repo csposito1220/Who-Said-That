@@ -1,4 +1,8 @@
-<%- includes('../partials/header') %>
+const express = require("express");
+const router = express.Router();
 
+const quotesCtrl = require("../controllers/quotes");
 
-<%- includes('../partials/footer') %>
+router.get("/", quotesCtrl.index);
+
+module.exports = router;
