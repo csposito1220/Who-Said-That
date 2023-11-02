@@ -10,10 +10,10 @@
 <% quotes.forEach(function(q) { %>
 <ul class="recent">
   <li><%= q.quote %></li>
-  <li><%= q.actor %></li>
-  <li><%= q.movie %></li>
+  <li><%= q.actor.name %></li>
+  <li><%= q.movie.title %></li>
 </ul>
-<% }) %>
+<% }); %>
 <!-- CRUD button list -->
 <ul class="crud">
   <li><a href="">Edit</a></li>
