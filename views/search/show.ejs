@@ -2,24 +2,21 @@
 
 <nav>
   <a href="/search">Search</a>
+  |
+  <a href="/show/new">Add Quote</a>
 </nav>
 
 <h1>Most Recent Searches</h1>
 
 <!-- list of recent searches -->
+<% quotes.forEach(function(q) { %>
 <div>
   <ul class="recent">
-    <% quotes.forEach(function(q) { %>
     <li><a href="/show/<%= q.id %>"><%= q.quote %></a></li>
     <li><%= q.actor.name %></li>
     <li><%= q.movie.title %></li>
   </ul>
   <% }); %>
 </div>
-<!-- CRUD button list -->
-<ul class="crud">
-  <li><a href="">Edit</a></li>
-  <li><a href="show/new">Add New</a></li>
-  <li><a href="">Delete</a></li>
-</ul>
+
 <%- include('../partials/footer') %>

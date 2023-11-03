@@ -13,7 +13,7 @@ function index(req, res) {
 }
 
 function searchedQuote(req, res) {
-  res.render("search/quote", { title: "Searched Quote" });
+  res.redirect("show/<%= quote.id &>", { title: "Searched Quote" });
 }
 
 function searchedMovie(req, res) {
