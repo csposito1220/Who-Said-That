@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<nav>
+  <a href="/search">Search</a>
+  |
+  <a href="/show">Recent Searches</a>
+  |
+  <a href="/show/new">Add Quote</a>
+</nav>
+
+<h1><%= quote.quote %></h1>
+
+<div>
+  <ul class="details">
+    <li><%= quote.actor.name %></li>
+    <li><%= quote.movie.title %></li>
+  </ul>
+</div>
+
+<form method="POST" action="/show/<%= quote.id %>">
+  <input type="hidden" name="_method" value="DELETE" />
+  <button type="submit">Delete</button>
+</form>
+
+<%- include('../partials/footer') %>

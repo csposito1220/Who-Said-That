@@ -7,16 +7,21 @@ module.exports = {
   details,
   new: newQuote,
   create,
+  // edit,
+  delete: deleteQuote,
 };
 
-function index(req, res) {
-  res.render("search/show", { title: "Recent Searches" });
+async function index(req, res) {
+  const quotes = await Quote.find({}).populate("actor").populate("movie");
+  res.render("search/show", { title: "Recent Searches", quotes });
 }
 
 async function details(req, res) {
-  const quote = await Quote.findById(req.params.id).populate("actor");
-  const actor = await Actor.find({ _id: { $nin: quote.actor } }).sort("name");
-  res.render("movies/show", { title: "Quote Detail", quote, actor });
+  const quote = await Quote.findById(req.params.id)
+    .populate("actor")
+    .populate("movie");
+  console.log(quote);
+  res.render("search/details", { title: "Quote Detail", quote });
 }
 
 async function newQuote(req, res) {
@@ -25,15 +30,30 @@ async function newQuote(req, res) {
 
 async function create(req, res) {
   try {
-    const quote = await Quote.create(req.body);
-    const actor = await Actor.create(req.body);
-    const movie = await Movie.create(req.body);
-    console.log(quote);
-    console.log(actor);
-    console.log(movie);
+    const { quote: quoteText, title, name } = req.body;
+    const actor = new Actor({ name });
+    await actor.save();
+    const movie = new Movie({ title });
+    await movie.save();
+    const quote = new Quote({
+      quote: quoteText,
+      actor: actor._id,
+      movie: movie._id,
+    });
+    await quote.save();
     res.redirect("/show");
   } catch (err) {
     console.log(err);
     res.render("search/new", { errorMsg: err.message });
   }
+}
+
+// async function edit(req, res) {
+
+// };
+
+async function deleteQuote(req, res) {
+  await quote.deleteOne();
+  await Quote.findById(quote._id);
+  res.redirect("/show");
 }
