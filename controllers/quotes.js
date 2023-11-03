@@ -53,7 +53,7 @@ async function create(req, res) {
 // };
 
 async function deleteQuote(req, res) {
+  const quote = await Quote.findById(req.params.id);
   await quote.deleteOne();
-  await Quote.findById(quote._id);
   res.redirect("/show");
 }
