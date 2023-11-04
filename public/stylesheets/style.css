@@ -3,6 +3,15 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+nav {
+  background-image: url("../../assets/filmRoll.png");
+  background-size: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
 a {
   color: #00b7ff;
 }
@@ -11,8 +20,12 @@ div {
   border-radius: 10px;
 }
 
-#recent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.show {
+  text-align: center;
+}
+
+#recent-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }

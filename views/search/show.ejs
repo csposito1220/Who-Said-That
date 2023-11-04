@@ -9,10 +9,10 @@
 <h1>Most Recent Searches</h1>
 
 <!-- list of recent searches -->
-<div id="recent">
+<div id="recent-container">
   <% quotes.forEach(function(q) { %>
   <div class="show">
-    <ul class="recent">
+    <ul class="recent-list">
       <li><a href="/show/<%= q.id %>"><%= q.quote %></a></li>
       <li><%= q.actor.name %></li>
       <li><%= q.movie.title %></li>
