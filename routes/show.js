@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 const quotesCtrl = require("../controllers/quotes");
 
@@ -9,8 +10,12 @@ router.get("/new", quotesCtrl.new);
 
 router.get("/:id", quotesCtrl.details);
 
-router.post("/", quotesCtrl.create);
+router.get("/:id/edit", ensureLoggedIn, quotesCtrl.edit);
 
-router.delete("/:id", quotesCtrl.delete);
+router.put("/:id", ensureLoggedIn, quotesCtrl.update);
+
+router.post("/", ensureLoggedIn, quotesCtrl.create);
+
+router.delete("/:id", ensureLoggedIn, quotesCtrl.delete);
 
 module.exports = router;

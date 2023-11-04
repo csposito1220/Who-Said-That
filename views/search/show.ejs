@@ -9,14 +9,15 @@
 <h1>Most Recent Searches</h1>
 
 <!-- list of recent searches -->
-<% quotes.forEach(function(q) { %>
-<div>
-  <ul class="recent">
-    <li><a href="/show/<%= q.id %>"><%= q.quote %></a></li>
-    <li><%= q.actor.name %></li>
-    <li><%= q.movie.title %></li>
-  </ul>
+<div id="recent">
+  <% quotes.forEach(function(q) { %>
+  <div class="show">
+    <ul class="recent">
+      <li><a href="/show/<%= q.id %>"><%= q.quote %></a></li>
+      <li><%= q.actor.name %></li>
+      <li><%= q.movie.title %></li>
+    </ul>
+  </div>
   <% }); %>
 </div>
-
 <%- include('../partials/footer') %>

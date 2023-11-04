@@ -7,8 +7,11 @@ module.exports = {
   details,
   new: newQuote,
   create,
-  // edit,
+  edit,
+  update,
   delete: deleteQuote,
+  getOne,
+  getAll,
 };
 
 async function index(req, res) {
@@ -20,7 +23,6 @@ async function details(req, res) {
   const quote = await Quote.findById(req.params.id)
     .populate("actor")
     .populate("movie");
-  console.log(quote);
   res.render("search/details", { title: "Quote Detail", quote });
 }
 
@@ -48,12 +50,48 @@ async function create(req, res) {
   }
 }
 
-// async function edit(req, res) {
+async function update(req, res) {
+  const quote = await Quote.findByIdAndUpdate(req.params.id, {
+    quote: req.body.quote,
+  })
+    .populate("actor")
+    .populate("movie");
+  const actor = await Actor.findByIdAndUpdate(quote.actor._id, {
+    name: req.body.actor,
+  });
+  const movie = await Movie.findByIdAndUpdate(quote.movie._id, {
+    title: req.body.movie,
+  });
+  console.log(req.body);
+  res.redirect(`/show/${req.params.id}`);
+}
 
-// };
+async function edit(req, res) {
+  try {
+    const quote = await Quote.findById(req.params.id)
+      .populate("actor")
+      .populate("movie");
+    // req.body.user = req.user._id;
+    res.render("search/edit", {
+      title: "Edit Quote",
+      quote,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 async function deleteQuote(req, res) {
   const quote = await Quote.findById(req.params.id);
   await quote.deleteOne();
   res.redirect("/show");
+}
+
+function getOne(id) {
+  id = parseInt(id);
+  return quotes.find((quote) => quote.id === id);
+}
+
+function getAll() {
+  return quotes;
 }
