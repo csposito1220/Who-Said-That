@@ -1,20 +1,21 @@
 <%- include('../partials/header') %>
-<nav>
-  <a href="/show">Recent Searches</a>
-  |
-  <a href="/show/new">Add Quote</a>
-</nav>
+
 
 <h1>How Do You Want to Search?</h1>
 <!-- Quote Search -->
-<form action="search/quote" method="get">
-  <input type="text" name="quote" placeholder="Search Quote Here" />
-  <input type="submit" value="Search" />
-</form>
-<h3>or</h3>
-<!-- Movie Search -->
-<form action="search/movie" method="get">
-  <input type="text" name="movie" placeholder="Search Movie Here" />
-  <input type="submit" value="Search" />
-</form>
+<div class="search">
+  <div id="search-quote">
+  <form action="search/quote" method="get">
+    <input class= "text" type="text" name="quote" placeholder="Search Quote Here" />
+    <input class="subBtn" type="submit" value="Search" />
+  </div>
+  </form>
+  <h3>or</h3>
+  <!-- Movie Search -->
+  <div id="search-movie"></div>
+  <form action="search/movie" method="get">
+    <input class= "text" type="text" name="movie" placeholder="Search Movie Here" />
+    <input class="subBtn" type="submit" value="Search" />
+  </form>
+</div>
 <%- include('../partials/footer') %>

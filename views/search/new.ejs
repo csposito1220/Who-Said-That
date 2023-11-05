@@ -1,23 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>New Quote</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
-  <body>
-    <nav>
-      <a href="/search">Search</a>
-      |
-      <a href="/show">Recent Searches</a>
-    </nav>
-    <form id="new-form" action="/show" method="POST">
-      <label>Quote:</label>
-      <input type="text" name="quote" />
-      <label>Movie Title:</label>
+<%- include('../partials/header') %>
+<h1>Add New Quote</h1>
+<div id="new-quote">
+<form id="new-form" action="/show" method="POST">
+  <div class="new-form-input">
+    <label>Quote:</label>
+  <input type="text" name="quote" />
+  </div>
+  <div class="new-form-input">
+    <label>Movie Title:</label>
       <input type="text" name="title" />
-      <label>Actor:</label>
+      </div>
+      <div class="new-form-input"><label>Actor:</label>
       <input type="text" name="name" />
       <input type="submit" value="Add Quote" />
+      </div>
     </form>
-  </body>
-</html>
+    </div>
+    <div id="new-seats"></div>
+    <%- include('../partials/footer') %>
+

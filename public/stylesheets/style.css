@@ -1,23 +1,33 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(108, 0, 0);
 }
 
 nav {
-  background-image: url("../../assets/filmRoll.png");
-  background-size: auto;
+  background-image: url("/images/filmStrip.png");
+  background-size: contain;
+  padding: 40px;
+
+}
+
+ul {
+  list-style-type: none;
 }
 
 h1 {
   text-align: center;
+  margin-top: 60px;
+  font-size: 45px;
 }
 
 a {
   color: #00b7ff;
 }
-div {
-  border: solid black 1px;
-  border-radius: 10px;
+
+.text {
+  height: 30px;
+  width: 40vw;
 }
 
 .show {
@@ -28,4 +38,64 @@ div {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  border: black solid 5px;
+  border-radius: 10px;
+}
+
+.recent-list {
+  border: black solid 2px;
+  border-radius: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.search {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 50px;
+}
+
+.subBtn {
+  height: 35px;
+}
+
+#cover-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/images/filmRoll.png');
+  background-size: cover;
+  height: 600px;
+  width: 600px;
+  margin: 150px 400px 400px 300px;
+}
+
+#cover-title {
+  font-size: 75px;
+}
+
+#login-text {
+  font-size: 20px;
+  text-align: center;
+}
+
+#new-quote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 150px 400px 50px 300px;
+  
+}
+
+.new-form-input {
+  padding: 5px;
+}
+
+#new-seats {
+  background-image: url('/images/seats.png');
+  background-size: contain;
+  height: 400px;
+  width: 800px;
+  margin: 0px 400px 400px 100px;
+  
 }
