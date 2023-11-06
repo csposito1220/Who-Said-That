@@ -1,27 +1,21 @@
 <%- include('../partials/header') %>
 
-<nav>
-  <a href="/search">Search</a>
-  |
-  <a href="/show">Recent Searches</a>
-  |
-  <a href="/show/new">Add Quote</a>
-  |
-  <a href="/logout">LOG OUT</a>
-</nav>
+
 
 <h1><%= quote.quote %></h1>
 
-<a href="/show/<%= quote.id %>/edit">Edit</a>
-<div>
-  <ul class="details">
+<div id="details">
+  <ul class="details-list">
     <li><%= quote.actor.name %></li>
     <li><%= quote.movie.title %></li>
   </ul>
 </div>
-
+<a id="edit" href="/show/<%= quote.id %>/edit">Edit</a>
+<br>
+<br>
+<br>
 <form method="POST" action="/show/<%= quote.id %>?_method=DELETE">
-  <button type="submit">Delete</button>
+  <button id="delete" type="submit">Delete</button>
 </form>
 
 <%- include('../partials/footer') %>

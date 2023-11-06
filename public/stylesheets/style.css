@@ -67,7 +67,7 @@ a {
   background-size: cover;
   height: 600px;
   width: 600px;
-  margin: 150px 400px 400px 300px;
+  margin: 150px 400px 400px 450px;
 }
 
 #cover-title {
@@ -84,7 +84,7 @@ a {
   justify-content: center;
   align-items: center;
   margin: 150px 400px 50px 300px;
-  
+   
 }
 
 .new-form-input {
@@ -95,7 +95,21 @@ a {
   background-image: url('/images/seats.png');
   background-size: contain;
   height: 400px;
-  width: 800px;
-  margin: 0px 400px 400px 100px;
+  width: 1500px;
+  margin: 0px 400px 400px 50px;
   
+}
+
+#details {
+  text-align: center;
+  font-size: 30px;
+}
+
+#edit {
+
+  margin-left: 800px;
+}
+
+#delete {
+  margin-left: 785px;
 }
